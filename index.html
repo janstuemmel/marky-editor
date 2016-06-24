@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Marky Example</title>
+  <link href="marky.min.css" rel="stylesheet" type="text/css">
+  <link href="marky.editor.themes.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <div id="test-content" style="display:none">
+# Marky Markdown Editor
+
+A simple Markdown editor build around the awsome [CodeMirror](http://codemirror.net/) Editor.
+
+
+## API
+
+```js
+
+var Marky = new Marky(document.body);
+var eventBus = Marky.get('eventBus');
+
+eventBus.on('marky.editor.change', function() {
+	console.log('changed');
+});
+
+```
+  </div>
+
+  <script src="marky.standalone.min.js"></script>
+  <script>
+
+    // example contents
+    var content = document.getElementById('test-content').innerHTML;
+
+    // init marky
+    var marky = new Marky(document.body, content);
+
+    // event api
+    var eventBus = marky.get('eventBus');
+    eventBus.on('marky.editor.change', function() {
+        console.log('content changed');
+    });
+
+  </script>
+</body>
+</html>
