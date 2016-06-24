@@ -49,6 +49,7 @@ function Marky(element, content, options) {
 
   // get the eventBus
   this._eventBus = this.get('eventBus');
+  this._editor = this.get('editor');
 
   // init everything else
   this._eventBus.fire('marky.init');
@@ -59,3 +60,7 @@ module.exports = Marky;
 Marky.prototype.on = function(type, cb) {
   this._eventBus.on(type, cb);
 };
+
+Marky.prototype.setEditorOption = function(option, value) {
+  this._editor.setOption(option, value);
+}

@@ -3,14 +3,21 @@ var assign = require('lodash/assign');
 
 var codemirror = require('codemirror/lib/codemirror');
 
-require('codemirror/mode/markdown/markdown');
+require('codemirror/addon/mode/overlay');
+
+// require('codemirror/mode/markdown/markdown');
+require('codemirror/mode/gfm/gfm');
+require('codemirror/mode/javascript/javascript');
+require('codemirror/mode/python/python');
+require('codemirror/mode/php/php');
+
 require('codemirror/addon/scroll/simplescrollbars');
 
 
 var DEFAULT_OPTIONS = {
-  theme: 'default',
-  mode: 'markdown',
-  scrollbarStyle: 'simple',
+  theme: 'dracula',
+  mode: 'gfm',
+  scrollbarStyle: 'overlay',
   lineNumbers: true,
   lineWrapping: true
 };
@@ -44,6 +51,7 @@ Editor.prototype._init = function(config) {
 
   // get codemirror options
   this.options = assign({}, DEFAULT_OPTIONS, config.editor);
+  this.options.value = config.content;
 
   // init codemirror
   this.editor = codemirror(this.el, this.options);
@@ -60,7 +68,7 @@ Editor.prototype._init = function(config) {
     that._eventBus.fire('marky.editor.change');
   });
 
-
+  // init
   this._eventBus.fire('marky.editor.init');
 }
 
@@ -74,4 +82,8 @@ Editor.prototype.getContents = function() {
 
 Editor.prototype.setContents = function(content) {
   return this.editor.setValue(content);
+}
+
+Editor.prototype.setOption = function(option, value) {
+  return this.editor.setOption(option, value);
 }

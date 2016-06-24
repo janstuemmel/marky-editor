@@ -3,7 +3,7 @@ var marked = require('marked');
 
 var WRAPPER = '<div class="marky-wrapper"></div>';
 
-var PREVIEW = '<div class="marky-preview"></div>';
+var PREVIEW = '<div class="marky-preview markdown-body"></div>';
 
 function Preview(eventBus, config, editor) {
 
