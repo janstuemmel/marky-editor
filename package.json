@@ -4,7 +4,8 @@
   "description": "A javascript markdown editor",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "prebublish": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,6 @@
     "browserify": "^13.0.1",
     "browserify-css": "^0.9.1",
     "chai": "^3.5.0",
-    "domify": "^1.4.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.3.0",
@@ -54,6 +54,7 @@
     "brace": "^0.8.0",
     "codemirror": "^5.16.0",
     "didi": "^0.1.0",
+    "domify": "^1.4.0",
     "github-markdown-css": "^2.3.0",
     "lodash": "^4.13.1",
     "markdown-css": "janstuemmel/markdown-css",
