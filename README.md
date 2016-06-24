@@ -31,8 +31,7 @@ or look into the [example](example.html)
 ### API
 
 ```js
-var eventBus = marky.get('eventBus');
-eventBus.on('marky.editor.change', function() {
+marky.on('marky.editor.change', function() {
   console.log('content changed');
 });
 ```
