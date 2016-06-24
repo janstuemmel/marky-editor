@@ -1,5 +1,5 @@
 {
-  "name": "Marky",
+  "name": "marky-editor",
   "version": "1.0.0",
   "description": "A javascript markdown editor",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janstuemmel/marky.git"
+    "url": "git+https://github.com/janstuemmel/marky-editor.git"
   },
   "keywords": [
     "markdown",
@@ -17,9 +17,9 @@
   "author": "Jan Stümmel",
   "license": "",
   "bugs": {
-    "url": "https://github.com/janstuemmel/marky/issues"
+    "url": "https://github.com/janstuemmel/marky-editor/issues"
   },
-  "homepage": "https://github.com/janstuemmel/marky#readme",
+  "homepage": "https://github.com/janstuemmel/marky-editor#readme",
   "devDependencies": {
     "browserify": "^13.0.1",
     "browserify-css": "^0.9.1",
@@ -54,7 +54,9 @@
     "brace": "^0.8.0",
     "codemirror": "^5.16.0",
     "didi": "^0.1.0",
+    "github-markdown-css": "^2.3.0",
     "lodash": "^4.13.1",
+    "markdown-css": "janstuemmel/markdown-css",
     "marked": "^0.3.5"
   }
 }
