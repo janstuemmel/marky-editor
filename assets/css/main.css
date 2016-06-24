@@ -4,8 +4,19 @@
 }
 
 .marky-markdown .marky-editor {
-  display: inline-block;
   width: 100%;
+  height: 100%;
+}
+
+.marky-markdown .marky-preview {
+  overflow: auto;
+  padding: 30px;
+  padding-top: 5px;
+}
+
+.marky-wrapper {
+  display: inline-block;
+  width: 50%;
   height: 100%;
   vertical-align: top;
   -webkit-box-sizing: border-box;

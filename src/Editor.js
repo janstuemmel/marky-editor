@@ -1,57 +1,23 @@
 var domify = require('domify');
 var ace = require('brace');
 
-var forEach = require('lodash').forEach;
+var codemirror = require('codemirror/lib/codemirror');
 
-require('brace/mode/markdown');
+require('codemirror/mode/markdown/markdown');
+require('codemirror/addon/scroll/simplescrollbars');
 
 
 var DEFAULT_OPTIONS = {
   theme: 'kuroir'
-}
+};
 
+var WRAPPER = '<div class="marky-wrapper"></div>';
 var EDITOR = '<div class="marky-editor"></div>';
 
-var themes = [
-  'ambiance',
-  'iplastic',
-  'terminal',
-  'chaos',
-  'katzenmilch',
-  'textmate',
-  'chrome',
-  'kr_theme',
-  'tomorrow',
-  'clouds',
-  'kuroir',
-  'tomorrow_night_blue',
-  'clouds_midnight',
-  'merbivore',
-  'tomorrow_night_bright',
-  'cobalt',
-  'merbivore_soft',
-  'tomorrow_night_eighties',
-  'crimson_editor',
-  'mono_industrial',
-  'tomorrow_night',
-  'dawn',
-  'monokai',
-  'twilight',
-  'dreamweaver',
-  'pastel_on_dark',
-  'vibrant_ink',
-  'eclipse',
-  'solarized_dark',
-  'xcode',
-  'github',
-  'solarized_light',
-  'idle_fingers',
-  'sqlserver'
-];
-
-require('brace/theme/kuroir.js');
 
 function Editor(eventBus, config) {
+
+  this._eventBus = eventBus;
 
   var that = this;
 
@@ -68,14 +34,30 @@ Editor.prototype._init = function(config) {
 
   var container = config.container;
 
-  var el = container.appendChild(domify(EDITOR));
+  var wrapper = container.appendChild(domify(WRAPPER))
+  var el = wrapper.appendChild(domify(EDITOR));
 
-  this.editor = ace.edit(el);
 
-  this.editor.getSession().setMode('ace/mode/markdown');
-  this.editor.setTheme('ace/theme/kuroir');
-  this.editor.setShowPrintMargin(false);
-  this.editor.$blockScrolling = Infinity;
+  this.editor = codemirror(el, {
+    mode: 'markdown',
+    // theme: '3024-night',
+    lineNumbers: true,
+    scrollbarStyle: 'overlay',
+    lineWrapping: true
+  });
+
+  this.editor.setSize('100%', '100%')
+
+  this._eventBus.fire('marky.editor.init');
+
+  var that = this;
+
+  this.editor.on('change', function() {
+    that._eventBus.fire('marky.editor.change');
+  });
+
+  this.setContents(config.content);
+
 }
 
 Editor.prototype.getContents = function() {

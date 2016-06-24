@@ -46,4 +46,8 @@ function insertCSS(name, css) {
   head.appendChild(style);
 }
 
+insertCSS('codemirror-theme.css', require('codemirror/theme/3024-day.css'));
+insertCSS('codemirror-theme.css', require('codemirror/theme/3024-night.css'));
+insertCSS('codemirror.css', require('codemirror/lib/codemirror.css'));
+insertCSS('codemirror-scroll.css', require('codemirror/addon/scroll/simplescrollbars.css'));
 insertCSS('main.css', require('../assets/css/main.css'));
