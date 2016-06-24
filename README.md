@@ -7,7 +7,11 @@ A simple Markdown editor build around the awsome [CodeMirror](http://codemirror.
 ## Install
 
 ```sh
+# include in your package
 npm install janstuemmel/marky-editor
+
+# via github
+git clone https://github.com/janstuemmel/marky-editor.git
 npm install && npm test
 
 # run automatic tests in chrome
@@ -17,7 +21,7 @@ TEST_BROWSERS=Chrome gulp test-auto
 ## Usage
 
 ```js
-// codemirror.css and main.css required for now
+// css injects automatically
 var Marky = require('Marky');
 var marky = new Marky(document.body, '# Hello world');
 ```

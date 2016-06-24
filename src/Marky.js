@@ -1,16 +1,12 @@
 var di = require('didi');
 var domify = require('domify');
-var ace = require('brace');
 var assign = require('lodash').assign;
 
 var DEFAULT_OPTIONS = {};
 
 var CONTAINER ='<div class="marky-markdown"></div>';
 
-var PREVIEW =
-  '<div class="marky-wrapper">' +
-    '<div class="marky-preview" style="background:#f7f7f7">sadsa</div>' +
-  '</div>';
+require('../assets/css/main.css');
 
 function createInjector(options) {
 
@@ -32,7 +28,6 @@ function Marky(element, content, options) {
   options = assign({}, DEFAULT_OPTIONS, options);
 
   var container = element.appendChild(domify(CONTAINER));
-  // var preview = container.appendChild(domify(PREVIEW));
 
   options.container = container;
   options.element = element;

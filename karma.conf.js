@@ -35,7 +35,10 @@ module.exports = function(karma) {
     browserify: {
      debug: true,
      paths: [ absoluteBasePath ],
-     transform: [ [ 'stringify', { global: true, extensions: [ '.css', '.md', '.markdown' ] } ] ]
+     transform: [
+       [ 'browserify-css' ],
+       [ 'stringify', { global: true, extensions: [ '.md', '.markdown' ] }] ,
+     ]
     }
 
   });
