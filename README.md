@@ -50,3 +50,4 @@ eventBus.on('marky.editor.change', function() {
 * able to register plugins in the editor
 * mathjax support
 * install eslint
+* markdown templates

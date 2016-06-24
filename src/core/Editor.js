@@ -1,5 +1,5 @@
 var domify = require('domify');
-var ace = require('brace');
+var assign = require('lodash/assign');
 
 var codemirror = require('codemirror/lib/codemirror');
 
@@ -8,7 +8,11 @@ require('codemirror/addon/scroll/simplescrollbars');
 
 
 var DEFAULT_OPTIONS = {
-  theme: 'kuroir'
+  theme: 'default',
+  mode: 'markdown',
+  scrollbarStyle: 'simple',
+  lineNumbers: true,
+  lineWrapping: true
 };
 
 var WRAPPER = '<div class="marky-wrapper"></div>';
@@ -34,30 +38,34 @@ Editor.prototype._init = function(config) {
 
   var container = config.container;
 
-  var wrapper = container.appendChild(domify(WRAPPER))
-  var el = wrapper.appendChild(domify(EDITOR));
+  // append editor to dom
+  this.wrapper = container.appendChild(domify(WRAPPER))
+  this.el = this.wrapper.appendChild(domify(EDITOR));
 
+  // get codemirror options
+  this.options = assign({}, DEFAULT_OPTIONS, config.editor);
 
-  this.editor = codemirror(el, {
-    mode: 'markdown',
-    // theme: '3024-night',
-    lineNumbers: true,
-    scrollbarStyle: 'overlay',
-    lineWrapping: true
-  });
+  // init codemirror
+  this.editor = codemirror(this.el, this.options);
 
+  // set size
   this.editor.setSize('100%', '100%')
 
-  this._eventBus.fire('marky.editor.init');
+  // set the given contents
+  this.setContents(config.content);
 
   var that = this;
 
-  this.editor.on('change', function() {
+  this.on('change', function() {
     that._eventBus.fire('marky.editor.change');
   });
 
-  this.setContents(config.content);
 
+  this._eventBus.fire('marky.editor.init');
+}
+
+Editor.prototype.on = function(type, cb) {
+  this.editor.on(type, cb);
 }
 
 Editor.prototype.getContents = function() {

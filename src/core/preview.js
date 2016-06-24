@@ -27,9 +27,9 @@ Preview.prototype._init = function() {
 
   var container = this._options.container;
 
-  var wrapper = container.appendChild(domify(WRAPPER));
+  this.wrapper = container.appendChild(domify(WRAPPER));
 
-  this.el = wrapper.appendChild(domify(PREVIEW));
+  this.el = this.wrapper.appendChild(domify(PREVIEW));
 
   var that = this;
 
@@ -37,6 +37,7 @@ Preview.prototype._init = function() {
     that.setContent(that._editor.getContents());
   });
 
+  this._eventBus.fire('marky.preview.init');
 }
 
 Preview.prototype.setContent = function(content) {
