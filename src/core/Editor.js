@@ -5,14 +5,12 @@ var codemirror = require('codemirror/lib/codemirror');
 
 require('codemirror/addon/mode/overlay');
 
-// require('codemirror/mode/markdown/markdown');
 require('codemirror/mode/gfm/gfm');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/python/python');
 require('codemirror/mode/php/php');
 
 require('codemirror/addon/scroll/simplescrollbars');
-
 
 var DEFAULT_OPTIONS = {
   theme: 'dracula',

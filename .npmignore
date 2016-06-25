@@ -1,0 +1,8 @@
+node_modules
+build
+.publish
+test
+example.html
+karma.conf.js
+!dist
+dist/index.html

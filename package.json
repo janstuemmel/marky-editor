@@ -1,11 +1,11 @@
 {
   "name": "marky-editor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A javascript markdown editor",
-  "main": "index.js",
+  "main": "marky.js",
   "scripts": {
     "test": "gulp test",
-    "prepublish": "gulp build"
+    "prepublish": "gulp release"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,9 @@
   "homepage": "https://github.com/janstuemmel/marky-editor#readme",
   "devDependencies": {
     "browserify": "^13.0.1",
-    "browserify-css": "^0.9.1",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.3.0",
     "gulp-gh-pages": "^0.5.4",
@@ -51,13 +51,11 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "brace": "^0.8.0",
     "codemirror": "^5.16.0",
     "didi": "^0.1.0",
     "domify": "^1.4.0",
     "github-markdown-css": "^2.3.0",
     "lodash": "^4.13.1",
-    "markdown-css": "janstuemmel/markdown-css",
     "marked": "^0.3.5"
   }
 }

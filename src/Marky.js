@@ -8,8 +8,6 @@ var DEFAULT_OPTIONS = {};
 
 var CONTAINER ='<div class="marky-markdown"></div>';
 
-require('../assets/css/main.css');
-
 function createInjector(options) {
 
   var configModule = { 'config': [ 'value', options ] };

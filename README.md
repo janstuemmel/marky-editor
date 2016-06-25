@@ -21,8 +21,11 @@ TEST_BROWSERS=Chrome gulp test-auto
 ## Usage
 
 ```js
-// css injects automatically
-var Marky = require('Marky');
+// insert css into your html 
+// required: node_modules/marky-editor/dist/marky.css
+// optional: node_modules/marky-editor/dist/marky.editor.themes.css
+
+var Marky = require('marky-editor');
 var marky = new Marky(document.body, '# Hello world');
 ```
 

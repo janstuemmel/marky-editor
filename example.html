@@ -1,8 +1,8 @@
 <html>
 <head>
   <title>Marky Example</title>
-  <style>
-  </style>
+  <link href="marky.min.css" rel="stylesheet" type="text/css">
+  <link href="marky.editor.themes.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@ eventBus.on('marky.editor.change', function() {
 ```
   </div>
 
-  <script src="marky/marky.js"></script>
+  <script src="marky.standalone.min.js"></script>
   <script>
 
     // example contents
@@ -40,7 +40,6 @@ eventBus.on('marky.editor.change', function() {
     eventBus.on('marky.editor.change', function() {
         console.log('content changed');
     });
-
 
   </script>
 </body>

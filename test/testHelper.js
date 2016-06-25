@@ -25,3 +25,24 @@ function inject(fn) {
 }
 
 module.exports.inject = (window || global).inject = inject
+
+
+//// MAIN //////
+
+function insertCSS(name, css) {
+
+  var head = document.head || document.getElementsByTagName('head')[0],
+      style = document.createElement('style');
+
+  style.setAttribute('data-css-file', name);
+
+  style.type = 'text/css';
+
+  if (style.styleSheet) style.styleSheet.cssText = css;
+
+  else style.appendChild(document.createTextNode(css));
+
+  head.appendChild(style);
+}
+
+insertCSS('marky.css', require('../assets/css/main.css'));
