@@ -1,5 +1,4 @@
 var domify = require('domify');
-var marked = require('marked');
 
 var WRAPPER = '<div class="marky-wrapper"></div>';
 
@@ -37,5 +36,5 @@ Preview.prototype._init = function() {
 }
 
 Preview.prototype.setContent = function(content) {
-  this.el.innerHTML = marked(content);
+  this.el.innerHTML = content;
 }

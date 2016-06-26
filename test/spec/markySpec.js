@@ -1,4 +1,4 @@
-require('./testHelper');
+require('../testHelper');
 
 describe('basic tests', function() {
 
@@ -7,8 +7,8 @@ describe('basic tests', function() {
   beforeEach(bootstrapMarky());
 
   beforeEach(function() {
-    markdownFileShort = require('./fixtures/short.md');
-    markdownFileLong = require('./fixtures/long.md');
+    markdownFileShort = require('../fixtures/short.md');
+    markdownFileLong = require('../fixtures/long.md');
   });
 
 

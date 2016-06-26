@@ -4,6 +4,9 @@
 /* mardown themes */
 @import url('../../node_modules/github-markdown-css/github-markdown.css');
 
+/* katex stylesheet */
+@import url('../../node_modules/katex/dist/katex.min.css');
+
 body {
   margin: 0;
 }

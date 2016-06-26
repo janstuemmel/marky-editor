@@ -15,11 +15,18 @@ module.exports = function(karma) {
     ],
 
     files: [
-      'test/**/*Spec.js'
+      'test/**/*Spec.js',
+      // katex fonts to prevent warnings
+      { pattern: 'node_modules/katex/dist/fonts/*', included: false, served: true, watched: false, nocache: true }
     ],
 
     preprocessors: {
       'test/**/*Spec.js': [ 'browserify' ]
+    },
+
+    proxies: {
+      // expose node_modules
+      '/node_modules/': '/base/node_modules/'
     },
 
     reporters: [ 'spec' ],

@@ -1,3 +1,5 @@
+var md = require('../util/markdownUtil');
+
 function previewUpdateHandler(eventBus, editor, preview) {
 
   this._editor = editor;
@@ -9,9 +11,8 @@ function previewUpdateHandler(eventBus, editor, preview) {
     that._preview.setContent( that._editor.getContents() );
   });
 
-
   eventBus.on('marky.editor.change', function() {
-    that._preview.setContent( that._editor.getContents() );
+    that._preview.setContent( md(that._editor.getContents()));
   });
 
 }

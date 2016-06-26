@@ -57,6 +57,9 @@ function bundleCSS(files, name, sm) {
 
 gulp.task('build:assets', function() {
 
+  gulp.src('./node_modules/katex/dist/fonts/*')
+    .pipe(gulp.dest(dist + '/fonts'));
+
   gulp.src('./node_modules/codemirror/theme/*.css')
     .pipe(concatCss('marky.editor.themes.css'))
     .pipe(gulp.dest(dist));
