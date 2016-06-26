@@ -5,7 +5,8 @@
   "main": "marky.js",
   "scripts": {
     "test": "gulp test",
-    "prepublish": "gulp release"
+    "prepublish": "gulp build",
+    "release": "gulp test && gulp release && npm publish"
   },
   "repository": {
     "type": "git",
