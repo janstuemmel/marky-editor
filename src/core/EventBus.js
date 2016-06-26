@@ -43,7 +43,6 @@ EventBus.prototype.off = function(type, callback) {
     for(var i=0; i<listeners.length; i++) {
       if (listeners[i] === callback) {
         listeners.remove(i);
-        console.log('listener removed');
       }
     }
 
