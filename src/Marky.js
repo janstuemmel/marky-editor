@@ -14,7 +14,9 @@ function createInjector(options) {
 
   var coreModule = require('./core');
 
-  var modules = [ configModule, coreModule ];
+  var editingModule = require('./editing');
+
+  var modules = [ configModule, coreModule, editingModule ];
 
   var injector = new di.Injector(modules);
 

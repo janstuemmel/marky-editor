@@ -33,10 +33,6 @@ Preview.prototype._init = function() {
 
   var that = this;
 
-  this._eventBus.on('marky.editor.change', function(e) {
-    that.setContent(that._editor.getContents());
-  });
-
   this._eventBus.fire('marky.preview.init');
 }
 
