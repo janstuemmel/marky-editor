@@ -1,5 +1,7 @@
 # Marky Markdown Editor
 
+[![Build Status](https://travis-ci.org/janstuemmel/marky-editor.svg?branch=master)](https://travis-ci.org/janstuemmel/marky-editor)
+
 A simple Markdown editor build around the awsome [CodeMirror](http://codemirror.net/) Editor.
 
 [Example](https://janstuemmel.github.io/marky-editor/)
@@ -21,7 +23,7 @@ TEST_BROWSERS=Chrome gulp test-auto
 ## Usage
 
 ```js
-// insert css into your html 
+// insert css into your html
 // required: node_modules/marky-editor/dist/marky.css
 // optional: node_modules/marky-editor/dist/marky.editor.themes.css
 
