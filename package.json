@@ -23,6 +23,7 @@
   "homepage": "https://github.com/janstuemmel/marky-editor#readme",
   "devDependencies": {
     "browserify": "^13.0.1",
+    "browserify-css": "^0.9.1",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.10",

@@ -107,7 +107,7 @@ gulp.task('build:js', function() {
 gulp.task('build', [ 'build:assets', 'build:js' ]);
 
 gulp.task('watch', function() {
-  gulp.watch(['./assets/**/*', './example.html', './src/**/*.js'], [ 'build' ])
+  gulp.watch(['./assets/**/*', './example.html', './src/**/*.js'], [ 'build', 'example' ])
 });
 
 gulp.task('example', function(cb) {
