@@ -3,21 +3,32 @@ var assign = require('lodash/assign');
 
 var codemirror = require('codemirror/lib/codemirror');
 
-require('codemirror/addon/mode/overlay');
 
+// inline language support
+require('codemirror/addon/mode/overlay');
 require('codemirror/mode/gfm/gfm');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/python/python');
 require('codemirror/mode/php/php');
 
+// codemirror addons
 require('codemirror/addon/scroll/simplescrollbars');
+require('codemirror/addon/edit/closebrackets');
+require('codemirror/addon/edit/matchbrackets');
+
+// keymaps
+require('codemirror/keymap/sublime');
+
 
 var DEFAULT_OPTIONS = {
   theme: 'dracula',
   mode: 'gfm',
   scrollbarStyle: 'overlay',
   lineNumbers: true,
-  lineWrapping: true
+  lineWrapping: true,
+  matchBrackets: true,
+  autoCloseBrackets: true,
+  keyMap: 'sublime'
 };
 
 var WRAPPER = '<div class="marky-wrapper"></div>';
