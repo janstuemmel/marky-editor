@@ -74,7 +74,12 @@ Editor.prototype._init = function(config) {
   var that = this;
 
   this.on('change', function() {
-    that._eventBus.fire('marky.editor.change');
+
+    var ctx = {
+      content: that.getContents()
+    };
+
+    that._eventBus.fire('marky.editor.change', ctx);
   });
 
   // init

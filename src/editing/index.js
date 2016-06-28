@@ -1,4 +1,4 @@
 module.exports = {
-  __init__: [ 'previewUpdateHandler' ],
-  previewUpdateHandler: [ 'type', require('./previewUpdateHandler') ]
+  __init__: [ 'updatePreviewHandler' ],
+  updatePreviewHandler: [ 'type', require('./updatePreviewHandler') ]
 };
