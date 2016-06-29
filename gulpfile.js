@@ -44,69 +44,32 @@ function bundle(name, options) {
     .pipe(buffer());
 }
 
-function bundleCSS(files, name, sm) {
-
-  function sourcemap() {
-    return
-  }
-
-  return gulp.src(files)
-    .pipe(concatCss(name))
-
-}
-
 gulp.task('build:assets', function() {
 
   gulp.src('./node_modules/codemirror/theme/*.css')
     .pipe(concatCss('marky.editor.themes.css'))
-    .pipe(gulp.dest(dist));
-
-  gulp.src('./assets/css/main.css')
-  .pipe(concatCss('marky.css'))
-    .pipe(gulp.dest(dist));
-
-  // minified
-  gulp.src('./node_modules/codemirror/theme/*.css')
-    .pipe(concatCss('marky.editor.themes.min.css'))
     .pipe(cleanCSS())
     .pipe(gulp.dest(dist));
 
   gulp.src('./assets/css/main.css')
-    .pipe(concatCss('marky.min.css'))
+    .pipe(concatCss('marky.css'))
     .pipe(cleanCSS())
     .pipe(gulp.dest(dist));
-
 });
 
 gulp.task('build:js', function() {
 
-  // minified standalone version
-  bundle('marky.standalone.min.js', { standalone: 'Marky' })
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(uglify({ output: { ascii_only: true } }))
+  // minified umd
+  bundle('marky.js', { standalone: 'Marky', debug: true })
+    .pipe(sourcemaps.init( { loadMaps: true } ))
+      .pipe(uglify({ output: { ascii_only: true } }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(dist));
-
-  // standalone version
-  bundle('marky.standalone.js', { standalone: 'Marky' })
-    .pipe(gulp.dest(dist));
-
-  // minified version
-  bundle('marky.min.js', {})
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(uglify({ output: { ascii_only: true } }))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(dist));
-
-  // normal version
-  bundle('marky.js', {})
     .pipe(gulp.dest(dist));
 });
 
-
 gulp.task('build', [ 'build:assets', 'build:js' ]);
 
-gulp.task('watch', function() {
+gulp.task('watch', [ 'build', 'example' ], function() {
   gulp.watch(['./assets/**/*', './example.html', './src/**/*.js'], [ 'build', 'example' ])
 });
 

@@ -1,8 +1,10 @@
 <html>
 <head>
   <title>Marky Example</title>
-  <link href="marky.min.css" rel="stylesheet" type="text/css">
-  <link href="marky.editor.themes.min.css" rel="stylesheet" type="text/css">
+  <!-- icludes all required styles for gh markdown and the editor -->
+  <link href="marky.css" rel="stylesheet" type="text/css">
+  <!-- themes optional, fallback to default theme -->
+  <link href="marky.editor.themes.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -26,7 +28,7 @@ eventBus.on('marky.editor.change', function() {
 ```
   </div>
 
-  <script src="marky.standalone.min.js"></script>
+  <script src="marky.js"></script>
   <script>
 
     // example contents
@@ -35,9 +37,8 @@ eventBus.on('marky.editor.change', function() {
     // init marky
     var marky = new Marky(document.body, content);
 
-    // event api
-    var eventBus = marky.get('eventBus');
-    eventBus.on('marky.editor.change', function() {
+    // api
+    marky.on('marky.editor.change', function() {
         console.log('content changed');
     });
 
