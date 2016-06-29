@@ -12,6 +12,7 @@ module.exports = function(karma) {
       'browserify',
       'mocha',
       'chai',
+      'sinon-chai'
     ],
 
     files: [
